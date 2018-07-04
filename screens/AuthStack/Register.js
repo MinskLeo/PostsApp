@@ -13,17 +13,20 @@ export default class LoginScreen extends React.Component{
     name: '',
     email: '',
     password: '',
-    isAgreed: true
+    isAgreed: false
   }
 
   render () {
+    let isAgreed = this.state.isAgreed;
+
+
     return (
       <View style={containers.containerCenter}>
         <CustomTextInput placeholder="Name" />
         <CustomTextInput placeholder="Email" />
         <CustomTextInput placeholder="Password" />
         <View style={containers.containerRow}>
-          <CheckBox onChange={value=>alert(value)} value={true}></CheckBox>
+          <CheckBox value={isAgreed} onValueChange={() => this.setState({ isAgreed: !isAgreed })}/>
           <Text>I agreed with everything</Text>
         </View>
         <CustomButton text="Register!" onPress={()=>{}}/>
